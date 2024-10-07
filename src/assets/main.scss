@@ -1,6 +1,8 @@
 @import './sass/variables';
+@import './header_style';
 
-body {
-  background-color: $bgPrimaryColor;
-  color: $primaryColor;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
