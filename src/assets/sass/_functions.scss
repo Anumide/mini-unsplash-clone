@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use 'sass:math';
+
+@function calcRem($arg) {
+  @return $baseSize * $arg;
+}
+
+@for $i from 1 through $numOfBoxes {
+  .box-#{$i} {
+    grid-row-end: span map-get($rowHeight, math.random($numOfRowOptions));
+  }
+  .delay-#{$i} {
+    animation-delay: (($i - 1) * $animationdelay);
+  }
+}

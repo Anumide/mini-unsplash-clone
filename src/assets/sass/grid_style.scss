@@ -1,0 +1,145 @@
+@import './mixins';
+@import './functions';
+
+.grid--container {
+  margin-top: -30px;
+  max-width: calc($desktop - 5%);
+  margin-inline: auto;
+  width: calc($basewidth * 7);
+  display: grid;
+  gap: calcRem(4);
+  grid-template-columns: 1fr;
+  grid-template-rows: 10px;
+  @include mQ($tablet) {
+    grid-template-columns: repeat($columns-medium, 1fr);
+  }
+  @include mQ($desktop) {
+    grid-template-columns: repeat($columns, 1fr);
+  }
+}
+
+.box {
+  @extend %boxFlex;
+  align-items: end;
+  position: relative;
+  color: $whiteColor;
+  overflow: hidden;
+  filter: contrast(125%);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+    transition: transform 550ms ease-in-out;
+  }
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.7) 90%);
+    pointer-events: none;
+  }
+  &:hover img {
+    transform: scale(1.1);
+  }
+  > div {
+    z-index: 9;
+  }
+  small {
+    font-size: calcRem(3);
+  }
+}
+
+.modal--wrapper {
+  @extend %centered;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  transition: opacity 350ms ease;
+}
+
+figure.modal--container {
+  width: calc($basewidth * 6 + 5vw);
+  max-width: $desktop;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: $whiteColor;
+  transition: all 350ms ease;
+  position: relative;
+
+  @include mQ($desktop-large) {
+    width: calc($basewidth * 5);
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 40vh;
+    @include mQ($tablet) {
+      height: 50vh;
+    }
+    @include mQ($desktop) {
+      height: 70vh;
+    }
+  }
+}
+
+figcaption {
+  padding: calcRem(4) calcRem(8);
+
+  p {
+    color: $darkBlue;
+    font-size: calcRem(5);
+    font-weight: $fontWeight;
+  }
+  small {
+    color: $greyishBlue;
+  }
+}
+
+.cancel {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: calcRem(6);
+  cursor: pointer;
+  color: $whiteColor;
+  @include mQ($tablet) {
+    right: 10%;
+  }
+  @include mQ($desktop-large) {
+    right: 20%;
+  }
+}
+
+.loader-skeleton {
+  @extend %boxFlex;
+  justify-content: end;
+  flex-direction: column;
+  gap: 5px;
+  background-color: $loaderBg;
+
+  div:first-child {
+    @extend %blankDiv;
+    width: calcRem(28);
+  }
+  div:last-child {
+    @extend %blankDiv;
+    width: calcRem(16);
+  }
+}

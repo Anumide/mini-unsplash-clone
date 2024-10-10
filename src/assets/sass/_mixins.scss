@@ -1,5 +1,24 @@
+@import './animations';
+@import './functions';
+
 @mixin mQ($arg) {
   @media screen and (min-width: $arg) {
     @content;
   }
+}
+
+%centered {
+  display: grid;
+  place-items: center;
+}
+
+%boxFlex {
+  display: flex;
+  padding: calcRem(4);
+  border-radius: 8px;
+}
+
+%blankDiv {
+  height: 10px;
+  animation: skeleton-loading 1s linear infinite alternate;
 }

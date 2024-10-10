@@ -1,7 +1,21 @@
 $lightGrey: #dde3e9;
+$loaderBg: #f6f6f6;
 $whiteColor: #fff;
 $darkBlue: #203751;
 $greyishBlue: #6a7889;
-
+$fontWeight: 500;
+$columns: 3;
+$columns-medium: 2;
+$numOfRowOptions: 3;
+$numOfBoxes: 8;
+$rowHeight: (
+  1: 20,
+  2: 25,
+  3: 30
+);
+$baseSize: 0.25rem;
+$basewidth: 10vw;
+$animationdelay: 0.15s;
 $tablet: 768px;
 $desktop: 1024px;
+$desktop-large: 1440px;

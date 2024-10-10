@@ -1,0 +1,14 @@
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(0, 0%, 81%);
+  }
+  100% {
+    background-color: hsl(0, 0%, 91%);
+  }
+}
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
